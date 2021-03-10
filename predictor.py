@@ -14,3 +14,9 @@ def prediction(path,lr):
     return lr.predict([spectre])
 #prediction("C:/Users/lenovo/Desktop/spectre.csv")
 
+def spectre(path):
+    with open(path) as f:
+        spectre = np.genfromtxt(f, delimiter=';')
+    spectre=spectre[1:2045]
+    X=np.arange(1,2045)
+    return [spectre,X]
