@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import sklearn
+from sklearn.linear_model import Ridge
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import LinearRegression
 
@@ -16,15 +17,16 @@ def make_model():
     Y=np.zeros((len(results)*4,len(results[0])),float)
     for i in range(len(Y)):
         Y[i]=results[i//4]
-    #Y=np.delete(Y,-1,0)
+    Y=np.delete(Y,-1,0)
     with open('model/recap.csv', 'r') as f_in:
         echantils = np.genfromtxt('model/recap.csv', delimiter=';')
     echantils = np.delete(echantils,0,1)
     echantils = echantils[1:len(echantils)-4]
     print(echantils)
     X=echantils.transpose()
-    #X=np.delete(X,-1,0)
+    X=np.delete(X,-1,0)
     linear_regressor = LinearRegression()  
-    linear_regressor.fit(X, Y)  
-    return linear_regressor
+    linear_regressor.fit(X, Y)
+    ridge = Ridge(alpha=1).fit(X,Y)
+    return ridge
 

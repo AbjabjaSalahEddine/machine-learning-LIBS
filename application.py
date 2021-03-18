@@ -79,7 +79,7 @@ def predict():
     C["Cu"]=pred[0][4]
     s = "Resultats de la prediction :\n \n"
     for V in C.keys() :
-    	s+="["+V+"] = "+str(C[V])+"\n"
+    	s+="["+V+"] = "+"%.2f" % C[V]+"\n"
     label = tk.Label(frame21, text=s , bg="#b3ffd6" , font=("", 12) )
     label.pack()
     fig= plt.Figure(figsize=(5, 4), dpi=100)
