@@ -15,7 +15,7 @@ root = tk.Tk()
 root.geometry("700x500")
 root.title("GUI du programe")
 root.resizable(0, 0)
-
+root.wm_iconbitmap('LOGO.ico')
 file_path=tk.StringVar()
 C={}
 LR=LinearRegression()
